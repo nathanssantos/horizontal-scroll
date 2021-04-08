@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+}
+
+article {
+  display: flex;
+}
+
+.header {
+  height: 50px;
+  background-color: #222;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+.logo {
+  color: #eee;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.horizontal-scroll {
+  /* position: sticky; */
+  position: relative;
+}
+
+.horizontal-scroll__view {
+  display: flex;
+  overflow-x: auto;
+  pointer-events: none;
+}
+
+.horizontal-scroll__view::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll__track {
+  display: flex;
+  height: calc(100vh - 50px);
+  /* border: 2px solid red; */
+}
+
+.horizontal-scroll img {
+  width: 100vw;
+}
+
+.no-scroll {
+  /* background: red; */
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
