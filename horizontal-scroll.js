@@ -19,8 +19,8 @@ const horizontalScroll = (
 
     const bottomLimit =
       getHeight(horizontalScrollPreviousSibling) +
-      getWidth(view) +
       getWidth(track) -
+      getWidth(view) +
       getHeight(header) -
       scrollBarWidth;
 
@@ -31,6 +31,7 @@ const horizontalScroll = (
 
     if (window.scrollY < topLimit) {
       view.style = "";
+      console.log(1);
 
       return;
     }
@@ -41,9 +42,12 @@ const horizontalScroll = (
         top: ${getHeight(header)}px;
         width: ${window.innerWidth - scrollBarWidth}px;
       `;
+      console.log(2);
 
       return;
     }
+
+    console.log(3);
 
     view.style = `
       position: fixed;
