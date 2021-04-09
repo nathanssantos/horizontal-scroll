@@ -24,27 +24,31 @@ const horizontalScroll = (
       getHeight(header) -
       scrollBarWidth;
 
+    horizontalScroll.style.height = `${
+      getWidth(track) - scrollBarWidth - getHeight(header) - getHeight(track)
+    }px`;
+
     view.scrollLeft =
       window.scrollY -
       getHeight(horizontalScrollPreviousSibling) -
       getHeight(header);
 
     if (window.scrollY < topLimit) {
-      view.removeAttribute("style");
-
       console.log(1);
+
+      view.removeAttribute("style");
 
       return;
     }
 
     if (window.scrollY >= topLimit && window.scrollY < bottomLimit) {
+      console.log(2);
+
       view.style = `
         position: fixed;
         top: ${getHeight(header)}px;
         width: ${window.innerWidth - scrollBarWidth}px;
       `;
-
-      console.log(2);
 
       return;
     }
@@ -58,20 +62,9 @@ const horizontalScroll = (
     `;
   };
 
-  const setup = () => {
-    horizontalScroll.style.height = `${getWidth(track)}px`;
-  };
-
-  const bindEvents = () => {
+  (() => {
     document.addEventListener("DOMContentLoaded", () => {
       window.addEventListener("scroll", handleScroll);
     });
-  };
-
-  (() => {
-    setup();
-    bindEvents();
   })();
 };
-
-horizontalScroll();
