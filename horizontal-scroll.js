@@ -30,7 +30,8 @@ const horizontalScroll = (
       getHeight(header);
 
     if (window.scrollY < topLimit) {
-      view.style = "";
+      view.removeAttribute("style");
+
       console.log(1);
 
       return;
@@ -42,6 +43,7 @@ const horizontalScroll = (
         top: ${getHeight(header)}px;
         width: ${window.innerWidth - scrollBarWidth}px;
       `;
+
       console.log(2);
 
       return;
